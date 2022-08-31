@@ -9,6 +9,10 @@ import "fmt"
 //Simply put, the Liskov Substitution Principle (LSP) states that
 //objects of a superclass should be replaceable with objects of its subclasses without breaking the application.
 
+// In Our scenario Rectangle is parent and Square is child and UseIt method for Rectangle should also work
+// for Square but because we use setheight and setwidth method and we set both height and widht in the same method
+// to enforce it so we break it
+
 type Sized interface {
 	GetWidth() int
 	SetWidth(width int)
@@ -36,9 +40,11 @@ func (rect *Rectangle) SetHeight(height int) {
 	rect.height = height
 }
 
+// Again Explanation
 // In Our scenario Rectangle is parent and Square is child and UseIt method for Rectangle should also work
 // for Square but because we use setheight and setwidth method and we set both height and widht in the same method
-// to enforce it so we break it {BELOW EXAMPLE WILL DEMONSTRATE HOW}
+// to enforce it so we break it
+// {BELOW EXAMPLE WILL DEMONSTRATE HOW}
 
 type Square struct {
 	Rectangle
